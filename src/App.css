@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.custom-btn-intranet {
+  color: #ffc107; /* Color de letra inicial (amarillo/dorado) */
+}
+
+.custom-btn-intranet:hover, 
+.custom-btn-intranet:active, 
+.custom-btn-intranet:focus {
+  background-color: #ffc107 !important; /* Fondo amarillo al pasar el mouse o hacer clic */
+  color: #000000 !important;           /* Letra negra para que se lea perfecto */
+  border-color: #ffc107 !important;
+}

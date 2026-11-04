@@ -1,58 +1,114 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import cartaSaborYArte from '../docs/Menú de Sabor & Arte.pdf';
 
 export default function Menu() {
   return (
-    <div>
-        <div className="container mt-5 pt-4">
-      <div className="row mb-5 text-center">
-        <div className="col-md-12">
-          <span className="text-warning text-uppercase fw-bold small">Nuestra Carta</span>
-          <h1 className="fw-bold display-5">Disfruta una experiencia única</h1>
-          <p className="text-muted">Explora nuestra variedad de entradas, platos de fondo y postres artesanales.</p>
+    <div className="text-dark min-vh-100 d-flex flex-column bg-white" style={{ paddingTop: '80px' }}>
+      
+      {/* =========================
+          ENCABEZADO (Con fondo sutil crema/marfil)
+      ========================= */}
+      <section className="text-center py-5" style={{ backgroundColor: '#e7d1a4', borderBottom: '1px solid #eee' }}>
+        <div className="container">
+          <span className="text-uppercase fw-semibold" style={{ color: '#b89728', letterSpacing: '4px', fontSize: '0.85rem' }}>
+            SABOR & ARTE · LIMA
+          </span>
+          <h1 className="fw-bold display-4 mt-2 text-dark" style={{ fontFamily: 'serif', letterSpacing: '1px' }}>
+            NUESTRA CARTA
+          </h1>
+          <p className="text-secondary mx-auto mt-3" style={{ maxWidth: '650px', fontSize: '1.1rem', lineHeight: '1.6' }}>
+            Descubre nuestra propuesta gastronómica, inspirada en el territorio y los ingredientes del Perú.
+          </p>
         </div>
-      </div>
+      </section>
 
-      <div className="row g-4">
-        <div className="col-md-4">
-          <div className="card shadow-sm border-0 h-100">
-            <div className="card-body">
-              <h4 className="card-title text-primary">Entradas</h4>
-              <ul className="list-unstyled mt-3">
-                <li className="d-flex justify-content-between py-2 border-bottom"><span>Ceviche clásico de mero</span> <strong>S/ 32.00</strong></li>
-                <li className="d-flex justify-content-between py-2 border-bottom"><span>Carpaccio de lomo fino</span> <strong>S/ 36.00</strong></li>
-                <li className="d-flex justify-content-between py-2"><span>Crema de zapallo loche</span> <strong>S/ 24.00</strong></li>
-              </ul>
-            </div>
+      {/* =========================
+          VISOR Y ACCIONES DE PDF
+      ========================= */}
+      <section className="container my-5 flex-grow-1">
+        <div className="card border-0 shadow-sm p-4 mx-auto" style={{ maxWidth: '1005px', borderRadius: '20px', backgroundColor: '#ffffff', border: '1px solid #eaeaea' }}>
+          
+          {/* Botones de acción */}
+          <div className="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+            
+            {/* Botón 1: Sólido oscuro */}
+            <a
+              href={cartaSaborYArte}
+              target="_blank"
+              rel="noreferrer"
+              className="btn rounded-pill px-4 py-2 fw-semibold shadow-sm"
+              style={{ 
+                backgroundColor: '#121212', 
+                color: '#ffffff', 
+                border: '1px solid #121212',
+                fontSize: '13px',
+                letterSpacing: '1px',
+                transition: 'all 0.3s'
+              }}
+            >
+              ABRIR CARTA
+            </a>
+
+            {/* Botón 2: Contorno con borde y texto dorado */}
+            <a
+              href={cartaSaborYArte}
+              download="Carta-Sabor-y-Arte.pdf"
+              className="btn rounded-pill px-4 py-2 fw-semibold shadow-sm"
+              style={{ 
+                backgroundColor: 'transparent', 
+                color: '#b89728', 
+                border: '1px solid #b89728',
+                fontSize: '13px',
+                letterSpacing: '1px',
+                transition: 'all 0.3s'
+              }}
+            >
+              DESCARGAR PDF
+            </a>
+          </div>
+
+          {/* Visor Iframe */}
+          <div className="ratio ratio-16x9 shadow-sm rounded-4 overflow-hidden border border-secondary-subtle" style={{ minHeight: '680px' }}>
+            <iframe
+              src={cartaSaborYArte}
+              title="Carta Sabor & Arte"
+              className="w-100 h-100"
+              style={{ border: 'none' }}
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================
+          CIERRE / LLAMADO A LA ACCIÓN (Con el mismo fondo sutil)
+      ========================= */}
+      <section className="text-center py-5 mt-auto text-dark" style={{ backgroundColor: '#e6cc99', borderTop: '1px solid #eee' }}>
+        <div className="container">
+          <span className="text-uppercase fw-semibold" style={{ color: '#121111', letterSpacing: '2px', fontSize: '0.85rem' }}>
+            ¿LISTO PARA VIVIR SABOR & ARTE?
+          </span>
+          <h2 className="fw-bold my-3 text-dark" style={{ fontSize: '1.8rem', fontFamily: 'serif' }}>
+            ELIGE TU EXPERIENCIA Y RESERVA TU MESA
+          </h2>
+          <div className="mt-4">
+            <Link
+              to="/reservas"
+              className="btn rounded-pill px-5 py-3 fw-bold shadow-sm"
+              style={{ 
+                backgroundColor: '#121212', 
+                color: '#ffc107', 
+                border: '1px solid #ffc107',
+                letterSpacing: '1px'
+              }}
+            >
+              RESERVAR MESA
+            </Link>
           </div>
         </div>
+      </section>
 
-        <div className="col-md-4">
-          <div className="card shadow-sm border-0 h-100">
-            <div className="card-body">
-              <h4 className="card-title text-primary">Platos Principales</h4>
-              <ul className="list-unstyled mt-3">
-                <li className="d-flex justify-content-between py-2 border-bottom"><span>Bife de res gourmet</span> <strong>S/ 45.00</strong></li>
-                <li className="d-flex justify-content-between py-2 border-bottom"><span>Pasta alfredo con langostinos</span> <strong>S/ 38.00</strong></li>
-                <li className="d-flex justify-content-between py-2"><span>Salmón a la parrilla</span> <strong>S/ 42.00</strong></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-4">
-          <div className="card shadow-sm border-0 h-100">
-            <div className="card-body">
-              <h4 className="card-title text-primary">Postres y Bebidas</h4>
-              <ul className="list-unstyled mt-3">
-                <li className="d-flex justify-content-between py-2 border-bottom"><span>Coulant de chocolate</span> <strong>S/ 18.00</strong></li>
-                <li className="d-flex justify-content-between py-2 border-bottom"><span>Suspiro a la limeña</span> <strong>S/ 16.00</strong></li>
-                <li className="d-flex justify-content-between py-2"><span>Vino tinto reserva (copa)</span> <strong>S/ 22.00</strong></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    </div>
-  )
+  );
 }
