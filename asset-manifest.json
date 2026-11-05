@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Nuevo-Sabor-y-Arte/static/css/main.03fc0dba.css",
-    "main.js": "/Nuevo-Sabor-y-Arte/static/js/main.6cccd243.js",
+    "main.js": "/Nuevo-Sabor-y-Arte/static/js/main.87b6b8ff.js",
     "static/js/453.5275755e.chunk.js": "/Nuevo-Sabor-y-Arte/static/js/453.5275755e.chunk.js",
     "static/media/Menú de Sabor & Arte.pdf": "/Nuevo-Sabor-y-Arte/static/media/Menú de Sabor & Arte.60be763e049eea8ab3d3.pdf",
     "index.html": "/Nuevo-Sabor-y-Arte/index.html",
     "main.03fc0dba.css.map": "/Nuevo-Sabor-y-Arte/static/css/main.03fc0dba.css.map",
-    "main.6cccd243.js.map": "/Nuevo-Sabor-y-Arte/static/js/main.6cccd243.js.map",
+    "main.87b6b8ff.js.map": "/Nuevo-Sabor-y-Arte/static/js/main.87b6b8ff.js.map",
     "453.5275755e.chunk.js.map": "/Nuevo-Sabor-y-Arte/static/js/453.5275755e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.03fc0dba.css",
-    "static/js/main.6cccd243.js"
+    "static/js/main.87b6b8ff.js"
   ]
 }
