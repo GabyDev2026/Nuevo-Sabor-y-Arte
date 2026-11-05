@@ -9,7 +9,6 @@ import PanelHorarios from './admin/PanelHorarios';
 import PanelReportes from './admin/PanelReportes';
 
 import { COLORES } from '../datos/colores';
-import { fechaLocalISO } from '../utilidades/fechas';
 import { estaAbierto } from '../utilidades/reservas';
 
 const SECCIONES = [

@@ -75,6 +75,15 @@ export default function Navegacion() {
               );
             })}
 
+            <Link
+              to="/login"
+              onClick={cerrarMenu}
+              className="btn btn-outline-warning rounded-pill px-4 py-2 fw-bold ms-lg-2"
+              style={{ fontSize: '14px' }}
+            >
+              INTRANET
+            </Link>
+
 
 
           </div>

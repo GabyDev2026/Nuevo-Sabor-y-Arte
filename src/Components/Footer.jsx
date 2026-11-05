@@ -98,11 +98,6 @@ export default function Footer({ horarios }) {
           <small className="opacity-75">
             © {anio} Sabor & Arte. Todos los derechos reservados.
           </small>
-          <small>
-            <Link to="/login" className="text-warning text-decoration-none">
-              Acceso intranet
-            </Link>
-          </small>
         </div>
       </div>
     </footer>

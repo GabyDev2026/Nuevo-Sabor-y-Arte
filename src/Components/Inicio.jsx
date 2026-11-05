@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import EncabezadoSeccion from './EncabezadoSeccion';
 import TarjetaPlato from './TarjetaPlato';
 import { COLORES } from '../datos/colores';
 
