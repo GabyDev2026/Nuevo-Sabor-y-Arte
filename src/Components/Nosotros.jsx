@@ -6,12 +6,14 @@ import HorarioAtencion from './HorarioAtencion';
 import { COLORES } from '../datos/colores';
 import './styles.css';
 
+const IMG = process.env.PUBLIC_URL + '/img/';
+
 const EQUIPO = [
-  { nombre: 'Chef Juan Pérez', cargo: 'Maestro Culinario', foto: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=400&auto=format&fit=crop' },
-  { nombre: 'Ana Díaz', cargo: 'Sommelier en Vinos', foto: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=400&auto=format&fit=crop' },
-  { nombre: 'Carlos Ruiz', cargo: 'Experto en Vinos', foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop' },
-  { nombre: 'Sofía Morales', cargo: 'Jefe de Sala', foto: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop' },
-  { nombre: 'Miguel Ángel', cargo: 'Sous Chef', foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop' },
+  { nombre: 'Chef Juan Pérez', cargo: 'Maestro Culinario', foto: IMG + 'maestro_culinario.png' },
+  { nombre: 'Ana Díaz', cargo: 'Sommelier en Vinos', foto: IMG + 'somelier_vinos.png' },
+  { nombre: 'Carlos Ruiz', cargo: 'Experto en Vinos', foto: IMG + 'experto_vinos.png' },
+  { nombre: 'Miguel Angel', cargo: 'Jefe de Sala', foto: IMG + 'jefe_sala.png' },
+  { nombre: 'Sofía Morales', cargo: 'Sous Chef', foto: IMG + 'sous_chef.png' }
 ];
 
 const estiloBotonContorno = {
@@ -105,7 +107,7 @@ export default function Nosotros({ horarios }) {
         {/* COCINA */}
         <div className="row align-items-center g-5 my-4">
           <div className="col-lg-6 order-lg-2">
-            <ImagenFondo url="https://images.unsplash.com/photo-1507048331137-7a3c987ea6a3?q=80&w=1000&auto=format&fit=crop" />
+            <ImagenFondo url={IMG + 'cocina.png'} />
           </div>
           <div className="col-lg-6 order-lg-1">
             <h2 className="fw-bold mb-4">Nuestra cocina</h2>

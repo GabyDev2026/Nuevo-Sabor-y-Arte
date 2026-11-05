@@ -1,17 +1,17 @@
 import React from 'react';
-import { COLORES } from '../datos/colores';
+import { RESERVA } from '../datos/colores';
 
 export default function SelectorHoras({ horas, horaElegida, alElegir }) {
   if (horas.length === 0) {
     return (
-      <div className="alert alert-light border small mb-0">
-        No hay horarios disponibles para este día.
-      </div>
+      <p className="mb-0" style={{ color: RESERVA.textoSuave }}>
+        No hay horarios disponibles para este día. Prueba con otra fecha.
+      </p>
     );
   }
 
   return (
-    <div className="d-flex flex-wrap gap-2">
+    <div className="d-flex flex-wrap gap-2" role="group" aria-label="Horas disponibles">
       {horas.map((h) => {
         const elegida = h.hora === horaElegida;
         return (
@@ -22,8 +22,11 @@ export default function SelectorHoras({ horas, horaElegida, alElegir }) {
             aria-pressed={elegida}
             title={h.disponible ? '' : 'Sin mesas disponibles'}
             onClick={() => alElegir(h.hora)}
-            className={`btn btn-sm px-3 ${elegida ? 'btn-dark' : 'btn-outline-dark'}`}
-            style={{ color: elegida ? COLORES.doradoClaro : undefined, transition: 'all 0.2s' }}
+            className={`btn px-3 ${elegida ? 'btn-warning' : 'btn-outline-light'}`}
+            style={{
+              transition: 'all 0.2s',
+              textDecoration: h.disponible ? 'none' : 'line-through',
+            }}
           >
             {h.hora}
           </button>

@@ -2,14 +2,13 @@
   "name": "proyectoparcial",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gabydev2026.github.io/sabor-arte",
+  "homepage": "https://gabydev2026.github.io/Nuevo-Sabor-y-Arte",
   "dependencies": {
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.8",
-    "gh-pages": "^6.3.0",
     "react": "^19.3.1",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.3.1",
@@ -42,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }

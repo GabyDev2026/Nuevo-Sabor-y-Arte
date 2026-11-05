@@ -9,9 +9,8 @@ import PanelHorarios from './admin/PanelHorarios';
 import PanelReportes from './admin/PanelReportes';
 
 import { COLORES } from '../datos/colores';
-import { CLAVE_SESION } from '../datos/config';
 import { fechaLocalISO } from '../utilidades/fechas';
-import { estaAbierto, horarioDelDia } from '../utilidades/reservas';
+import { estaAbierto } from '../utilidades/reservas';
 
 const SECCIONES = [
   { id: 'resumen', titulo: 'Dashboard', icono: '📊' },
@@ -27,6 +26,7 @@ export function Panel({
   mesas, setMesas,
   horarios, setHorarios,
   reservas, setReservas,
+  onLogout
 }) {
   const navigate = useNavigate();
   const [seccionActiva, setSeccionActiva] = useState('resumen');
@@ -47,17 +47,12 @@ export function Panel({
     return () => clearTimeout(temporizador);
   }, [mensaje]);
 
-  // Si no se inició sesión, vuelve al login
-  if (!sessionStorage.getItem(CLAVE_SESION)) {
+  // Si no se inició sesión según el sessionStorage, vuelve al login
+  if (sessionStorage.getItem('sabor_arte_sesion') !== 'true') {
     return <Navigate to="/login" />;
   }
 
   const abierto = estaAbierto(horarios, ahora);
-  const horarioHoy = horarioDelDia(horarios, fechaLocalISO(ahora));
-  const textoHorario =
-    horarioHoy && horarioHoy.abierto
-      ? `Hoy: ${horarioHoy.apertura} - ${horarioHoy.cierre}`
-      : 'Hoy no se atiende';
 
   // Función para hacer scroll suave al hacer clic en el menú lateral
   const hacerScrollA = (id) => {
@@ -71,7 +66,8 @@ export function Panel({
   };
 
   const salir = () => {
-    sessionStorage.removeItem(CLAVE_SESION);
+    sessionStorage.removeItem('sabor_arte_sesion');
+    if (onLogout) onLogout();
     navigate('/login');
   };
 

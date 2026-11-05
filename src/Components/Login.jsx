@@ -12,8 +12,8 @@ const Login = ({ onLogin }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        // Validación de credenciales
-        if (usuario === 'admin' && contrasena === '123456') {
+        // Validación exacta de credenciales
+        if (usuario === 'admin' && contrasena === 'saboryarte') {
             setError('');
             if (onLogin) onLogin(); // Activa la sesión en App.js
             navigate('/panel');      // Redirige al panel administrativo

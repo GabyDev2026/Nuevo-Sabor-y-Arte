@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 import Navegacion from './Components/Navegacion';
 import Inicio from './Components/Inicio';
 import Nosotros from './Components/Nosotros';
 import Menu from './Components/Menu';
 import Galeria from './Components/Galeria';
-import { Reservas } from './Components/Reservas';
+import Reservas from './Components/Reservas';
 import Contacto from './Components/Contacto';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
@@ -36,6 +36,21 @@ const TITULOS = {
 const Contenido = () => {
   const { pathname } = useLocation();
   const mostrarMenu = !RUTAS_SIN_MENU.includes(pathname);
+
+  // Estado de autenticación conectado al sessionStorage para que no se pierda al recargar
+  const [autenticado, setAutenticado] = useState(() => {
+    return sessionStorage.getItem('sabor_arte_sesion') === 'true';
+  });
+
+  const handleLogin = () => {
+    sessionStorage.setItem('sabor_arte_sesion', 'true');
+    setAutenticado(true);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('sabor_arte_sesion');
+    setAutenticado(false);
+  };
 
   const [platos, setPlatos] = useState(() => cargar(CLAVES.platos, platosIniciales));
   const [mesas, setMesas] = useState(() => cargar(CLAVES.mesas, mesasIniciales));
@@ -115,16 +130,28 @@ const Contenido = () => {
             }
           />
           <Route path="/contacto" element={<Contacto horarios={horarios} />} />
-          <Route path="/login" element={<Login />} />
+          
+          {/* Ruta de Login protegida para redirigir al panel si ya está logueado */}
+          <Route 
+            path="/login" 
+            element={!autenticado ? <Login onLogin={handleLogin} /> : <Navigate to="/panel" />} 
+          />
+
+          {/* Ruta del Panel protegida que exige estar autenticado */}
           <Route
             path="/panel"
             element={
-              <Panel
-                platos={platos} setPlatos={setPlatos}
-                mesas={mesas} setMesas={setMesas}
-                horarios={horarios} setHorarios={setHorarios}
-                reservas={reservas} setReservas={setReservas}
-              />
+              autenticado ? (
+                <Panel
+                  platos={platos} setPlatos={setPlatos}
+                  mesas={mesas} setMesas={setMesas}
+                  horarios={horarios} setHorarios={setHorarios}
+                  reservas={reservas} setReservas={setReservas}
+                  onLogout={handleLogout}
+                />
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route path="*" element={<Navigate to="/" />} />

@@ -122,7 +122,7 @@ export default function PanelHorarios({ horarios, setHorarios, avisar }) {
           Descartar cambios
         </button>
         <button type="button" className="btn btn-outline-dark ms-md-auto" onClick={copiarLunes}>
-          Copiar el horario del lunes a todos los días
+         horario del lunes a domingo
         </button>
       </div>
     </form>
