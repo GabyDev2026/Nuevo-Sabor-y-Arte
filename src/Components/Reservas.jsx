@@ -1,118 +1,176 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // <--- Importa useNavigate
 
-export default function Reservas() {
-  const navigate = useNavigate(); // <--- Inicializa el hook de navegación
+export const Reservas = ({ mesas, reservas, horarios, agregarReserva }) => {
+  const [nombre, setNombre] = useState('');
+  const [telefono, setTelefono] = useState('');
+  const [fecha, setFecha] = useState('');
+  const [hora, setHora] = useState('');
+  const [mesaId, setMesaId] = useState('');
+  const [personas, setPersonas] = useState(2);
+  const [observaciones, setObservaciones] = useState('');
+  const [mensaje, setMensaje] = useState(null);
 
-  const [formData, setFormData] = useState({ 
-    cliente: '', 
-    email: '', 
-    fecha: '', 
-    hora: '', 
-    personas: '2' 
-  });
-
-  // Validar si todos los campos requeridos están completos
-  const isFormValid = formData.cliente.trim() !== '' && 
-                      formData.email.trim() !== '' && 
-                      formData.fecha !== '' && 
-                      formData.hora !== '';
-
+  // Filtrar mesas disponibles o mostrar el formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!isFormValid) return;
 
-    // Redirecciona a la página de disponibilidad y opcionalmente pasa los datos con state
-    navigate('/disponibilidad', { state: { reservaData: formData } });
+    if (!nombre || !telefono || !fecha || !hora || !mesaId) {
+      setMensaje({ ok: false, texto: 'Por favor completa todos los campos obligatorios.' });
+      return;
+    }
+
+    const datosReserva = {
+      cliente: nombre,
+      telefono,
+      fecha,
+      hora,
+      mesaId: parseInt(mesaId),
+      personas: parseInt(personas),
+      observaciones
+    };
+
+    const resultado = agregarReserva(datosReserva);
+
+    if (resultado.ok) {
+      setMensaje({ 
+        ok: true, 
+        texto: `¡Reserva exitosa! Tu código de confirmación es #${resultado.reserva.id}.` 
+      });
+      // Limpiar formulario
+      setNombre('');
+      setTelefono('');
+      setFecha('');
+      setHora('');
+      setMesaId('');
+      setPersonas(2);
+      setObservaciones('');
+    } else {
+      setMensaje({ ok: false, texto: resultado.error });
+    }
   };
 
   return (
-    <div>
-      <div className="container mt-5 pt-4">
-        <div className="row mb-4 text-center" style={{ margin: '2.5rem 0 0 0' }}>
-          <div className="col-md-12">
-            <span className="text-warning text-uppercase fw-bold small" style={{ fontSize: '2rem' }}>Reservas</span>
-            <h1 className="fw-bold">Tu mesa te espera</h1>
-            <p className="text-muted">Haz tu reserva y disfruta de una experiencia gastronómica sin preocupaciones.</p>
+    <div className="container" style={{ paddingTop: '130px', paddingBottom: '60px', maxWidth: '800px' }}>
+      <div className="card shadow-sm p-4 border-0" style={{ backgroundColor: '#fffdf9' }}>
+        <h2 className="text-center mb-4" style={{ color: '#2c3e50', fontWeight: 'bold' }}>
+          Reserva tu Mesa en Sabor & Arte
+        </h2>
+        <p className="text-center text-muted mb-4">
+          Disfruta de la mejor experiencia gastronómica asegurando tu espacio con anticipación.
+        </p>
+
+        {mensaje && (
+          <div className={`alert ${mensaje.ok ? 'alert-success' : 'alert-danger'}`} role="alert">
+            {mensaje.texto}
           </div>
-        </div>
+        )}
 
-        <div className="row justify-content-center" >
-          <div className="col-md-7" >
-            <div className="card shadow p-4 border-0" >
-              <h4 className="mb-4 text-primary text-center" style={{fontSize:'2rem'}}>Reserva tu mesa</h4>
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label className="form-label fw-bold">Nombre completo *</label>
-                  <input 
-                    type="text" 
-                    className="form-control" 
-                    placeholder="Ej. Carlos Torres" 
-                    required 
-                    value={formData.cliente}
-                    onChange={(e) => setFormData({ ...formData, cliente: e.target.value })} 
-                  />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label fw-bold">Correo electrónico *</label>
-                  <input 
-                    type="email" 
-                    className="form-control" 
-                    placeholder="tu@correo.com" 
-                    required 
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
-                  />
-                </div>
-                <div className="row">
-                  <div className="col-md-6 mb-3">
-                    <label className="form-label fw-bold">Fecha de reserva *</label>
-                    <input 
-                      type="date" 
-                      className="form-control" 
-                      required 
-                      value={formData.fecha}
-                      onChange={(e) => setFormData({ ...formData, fecha: e.target.value })} 
-                    />
-                  </div>
-                  <div className="col-md-6 mb-3">
-                    <label className="form-label fw-bold">Hora *</label>
-                    <input 
-                      type="time" 
-                      className="form-control" 
-                      required 
-                      value={formData.hora}
-                      onChange={(e) => setFormData({ ...formData, hora: e.target.value })} 
-                    />
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <label className="form-label fw-bold">Número de personas *</label>
-                  <select 
-                    className="form-select" 
-                    value={formData.personas}
-                    onChange={(e) => setFormData({ ...formData, personas: e.target.value })}
-                  >
-                    <option value="1">1 Persona</option>
-                    <option value="2">2 Personas</option>
-                    <option value="4">4 Personas</option>
-                    <option value="6">6+ Personas</option>
-                  </select>
-                </div>
-
-                {/* El botón se mantiene deshabilitado (disabled) si el formulario no está completo */}
-                <button 
-                  type="submit" 
-                  className={`btn w-100 fw-bold py-2 text-dark ${!isFormValid ? 'btn-secondary opacity-50' : 'btn-warning'}`}
-                  disabled={!isFormValid}
-                >
-                  Buscar disponibilidad y reservar
-                </button>
-              </form>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-md-6 mb-3">
+              <label className="form-label fw-bold">Nombre Completo</label>
+              <input
+                type="text"
+                className="form-control"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                placeholder="Ej. Carlos Mendoza"
+                required
+              />
+            </div>
+            <div className="col-md-6 mb-3">
+              <label className="form-label fw-bold">Teléfono / Celular</label>
+              <input
+                type="tel"
+                className="form-control"
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
+                placeholder="Ej. +51 987654321"
+                required
+              />
             </div>
           </div>
-        </div>
+
+          <div className="row">
+            <div className="col-md-4 mb-3">
+              <label className="form-label fw-bold">Fecha</label>
+              <input
+                type="date"
+                className="form-control"
+                value={fecha}
+                onChange={(e) => setFecha(e.target.value)}
+                required
+              />
+            </div>
+            <div className="col-md-4 mb-3">
+              <label className="form-label fw-bold">Hora</label>
+              <select
+                className="form-select"
+                value={hora}
+                onChange={(e) => setHora(e.target.value)}
+                required
+              >
+                <option value="">Selecciona una hora</option>
+                {horarios.map((h, index) => (
+                <option key={index} value={h.apertura}>
+                    {h.nombre || h.dia}: {h.abierto ? `${h.apertura} - ${h.cierre}` : 'Cerrado'}
+                </option>
+))}
+              </select>
+            </div>
+            <div className="col-md-4 mb-3">
+              <label className="form-label fw-bold">Cantidad de Personas</label>
+              <input
+                type="number"
+                className="form-control"
+                min="1"
+                max="12"
+                value={personas}
+                onChange={(e) => setPersonas(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label fw-bold">Seleccionar Mesa</label>
+            <select
+              className="form-select"
+              value={mesaId}
+              onChange={(e) => setMesaId(e.target.value)}
+              required
+            >
+              <option value="">Elige una mesa disponible</option>
+              {mesas.map((mesa) => (
+                <option key={mesa.id} value={mesa.id}>
+                  Mesa {mesa.id} - Capacidad: {mesa.capacidad} personas ({mesa.ubicacion || 'Salón principal'})
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="form-label fw-bold">Observaciones o Requerimientos Especiales</label>
+            <textarea
+              className="form-control"
+              rows="3"
+              value={observaciones}
+              onChange={(e) => setObservaciones(e.target.value)}
+              placeholder="Ej. Silla para infante, celebración de cumpleaños..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="btn w-100 py-2 fw-bold text-white"
+            style={{ backgroundColor: '#2c3e50', transition: 'background 0.3s' }}
+          >
+            Confirmar y Guardar Reserva
+          </button>
+        </form>
       </div>
     </div>
   );
-}
+};
+
+export default Reservas;
