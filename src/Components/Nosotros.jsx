@@ -3,8 +3,7 @@ import './styles.css';
 
 export default function Nosotros() {
   return (
-    <div className="container-fluid bg-white text-dark" style={{ paddingTop: '120px', minHeight: '100vh', paddingBottom: '80px' }}>
-      <div className="container py-4">
+    <div className="p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between" style={{ backgroundColor: '#f5f2eb', paddingTop: '100px' }}>
         
         {/* Cabecera de la sección */}
         <div className="text-center mb-5">
@@ -193,6 +192,5 @@ export default function Nosotros() {
         </div>
 
       </div>
-    </div>
   );
 }

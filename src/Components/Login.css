@@ -1,0 +1,186 @@
+    :root {
+    --bg-color: #f5f2eb;
+    --btn-green: #103328;
+    --btn-green-hover: #0a221a;
+    --text-gold: #b39762;
+    --text-dark: #1f1f1f;
+    --text-muted: #737373;
+    --input-bg: #e8f0fe;
+    --border-color: #d1d5db;
+    }
+
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .login-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    }
+
+    /* SECCIÓN DE LA IMAGEN (IZQUIERDA) */
+    .login-hero {
+    flex: 1;
+    /* Reemplaza la URL por la ruta local de tu imagen en /public o assets */
+    background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200') center/cover no-repeat;
+    position: relative;
+    }
+
+    .login-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 20, 15, 0.45);
+    display: flex;
+    align-items: flex-end;
+    padding: 32px;
+    }
+
+    .brand-logo {
+    color: var(--text-gold);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    }
+
+    /* SECCIÓN DEL FORMULARIO (DERECHA) */
+    .login-form-container {
+    flex: 1;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    }
+
+    .login-box {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    }
+
+    .subtitle {
+    font-size: 0.75rem;
+    color: var(--text-gold);
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    }
+
+    .login-box h2 {
+    font-size: 1.75rem;
+    color: var(--btn-green);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    }
+
+    .description {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    line-height: 1.4;
+    }
+
+    /* CAMPOS Y FORMULARIO */
+    .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+
+    .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    }
+
+    .form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    }
+
+    .form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    outline: none;
+    transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus {
+    border-color: var(--btn-green);
+    }
+
+    /* INPUT DE CONTRASEÑA CON ÍCONO */
+    .password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    }
+
+    .toggle-password-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    }
+
+    .toggle-password-btn:hover {
+    color: var(--text-dark);
+    }
+
+    /* BOTÓN DE ENVIAR */
+    .btn-submit {
+    margin-top: 12px;
+    padding: 14px;
+    background-color: var(--btn-green);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    }
+
+    .btn-submit:hover {
+    background-color: var(--btn-green-hover);
+    }
+
+    /* ENLACE DE REGRESO */
+    .link-back {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    }
+
+    .link-back:hover {
+    color: var(--text-dark);
+    }
+
+    /* DISEÑO RESPONSIVO (PANTALLAS PEQUEÑAS) */
+    @media (max-width: 768px) {
+    .login-hero {
+        display: none;
+    }
+    }

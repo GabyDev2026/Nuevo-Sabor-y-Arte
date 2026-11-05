@@ -4,21 +4,22 @@ import cartaSaborYArte from '../docs/Menú de Sabor & Arte.pdf';
 
 export default function Menu() {
   return (
-    <div className="text-dark min-vh-100 d-flex flex-column bg-white" style={{ paddingTop: '80px' }}>
+    <div className="p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-between" style={{ backgroundColor: '#f5f2eb', paddingTop: '100px' }}>
+      <div className="container py-4"></div>
       
       {/* =========================
-          ENCABEZADO (Con fondo sutil crema/marfil)
+          ENCABEZADO
       ========================= */}
-      <section className="text-center py-5" style={{ backgroundColor: '#e7d1a4', borderBottom: '1px solid #eee' }}>
+      <section className="text-center py-5">
         <div className="container">
-          <span className="text-uppercase fw-semibold" style={{ color: '#b89728', letterSpacing: '4px', fontSize: '0.85rem' }}>
+          <span className="text-uppercase fw-semibold" style={{ color: '#b8973b', letterSpacing: '3px', fontSize: '1rem' }}>
             SABOR & ARTE · LIMA
           </span>
-          <h1 className="fw-bold display-4 mt-2 text-dark" style={{ fontFamily: 'serif', letterSpacing: '1px' }}>
+          <h1 className="fw-bold mt-2 text-dark" style={{ letterSpacing: '1px', fontSize: '2.2rem' }}>
             NUESTRA CARTA
           </h1>
-          <p className="text-secondary mx-auto mt-3" style={{ maxWidth: '650px', fontSize: '1.1rem', lineHeight: '1.6' }}>
-            Descubre nuestra propuesta gastronómica, inspirada en el territorio y los ingredientes del Perú.
+          <p className="text-secondary mx-auto mt-3" style={{ maxWidth: '650px', fontSize: '1rem', lineHeight: '1.7' }}>
+            Descubre nuestra propuesta gastronómica, mediante una experiencia unica.
           </p>
         </div>
       </section>
@@ -26,7 +27,7 @@ export default function Menu() {
       {/* =========================
           VISOR Y ACCIONES DE PDF
       ========================= */}
-      <section className="container my-5 flex-grow-1">
+      <section className="container my-4 flex-grow-1">
         <div className="card border-0 shadow-sm p-4 mx-auto" style={{ maxWidth: '1005px', borderRadius: '20px', backgroundColor: '#ffffff', border: '1px solid #eaeaea' }}>
           
           {/* Botones de acción */}
@@ -41,7 +42,7 @@ export default function Menu() {
               style={{ 
                 backgroundColor: '#121212', 
                 color: '#ffffff', 
-                border: '1px solid #121212',
+                border: '1px solid #e2dfb4',
                 fontSize: '13px',
                 letterSpacing: '1px',
                 transition: 'all 0.3s'
@@ -57,8 +58,8 @@ export default function Menu() {
               className="btn rounded-pill px-4 py-2 fw-semibold shadow-sm"
               style={{ 
                 backgroundColor: 'transparent', 
-                color: '#b89728', 
-                border: '1px solid #b89728',
+                color: '#111112', 
+                border: '1px solid #d6c41c',
                 fontSize: '13px',
                 letterSpacing: '1px',
                 transition: 'all 0.3s'
@@ -82,14 +83,14 @@ export default function Menu() {
       </section>
 
       {/* =========================
-          CIERRE / LLAMADO A LA ACCIÓN (Con el mismo fondo sutil)
+          CIERRE / LLAMADO A LA ACCIÓN
       ========================= */}
-      <section className="text-center py-5 mt-auto text-dark" style={{ backgroundColor: '#e6cc99', borderTop: '1px solid #eee' }}>
+      <section className="text-center py-5 mt-auto text-dark">
         <div className="container">
-          <span className="text-uppercase fw-semibold" style={{ color: '#121111', letterSpacing: '2px', fontSize: '0.85rem' }}>
+          <span className="text-uppercase fw-semibold text-secondary" style={{ letterSpacing: '2px', fontSize: '0.85rem' }}>
             ¿LISTO PARA VIVIR SABOR & ARTE?
           </span>
-          <h2 className="fw-bold my-3 text-dark" style={{ fontSize: '1.8rem', fontFamily: 'serif' }}>
+          <h2 className="fw-bold my-3 text-dark" style={{ fontSize: '1.8rem' }}>
             ELIGE TU EXPERIENCIA Y RESERVA TU MESA
           </h2>
           <div className="mt-4">

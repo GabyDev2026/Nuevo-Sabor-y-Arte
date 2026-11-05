@@ -1,16 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import bannerImg from '../img/banner.png';
-import gorroImg from '../img/gorro.png';
-import platoImg from '../img/plato.png';
-import hojasImg from '../img/hojas.png';
-import copaImg from  '../img/copa.png';
-import carneImg from '../img/carne.png';
-import pastaImg from '../img/pasta.png';
-import salmonImg from '../img/salmon.png';
-import postreImg from '../img/postre.png';
-import restauranteImg from '../img/restaurante.png';
-
 export default function Inicio() {
   return (
     <div>
@@ -20,7 +9,7 @@ export default function Inicio() {
         
         {/* Imagen de fondo absoluta con oscurecimiento para que resalte el texto */}
         <img
-          src={bannerImg}
+          src={process.env.PUBLIC_URL +"/img/banner.png"}
           alt="Banner Sabor y Arte"
           className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
         />
@@ -53,22 +42,22 @@ export default function Inicio() {
           {/* Barra de Características en fondo claro */}
           <div className="row text-center py-4 bg-white rounded shadow-sm border mb-5 mx-0">
             <div className="col-md-3 mb-3 mb-md-0 px-2 border-end">
-              <img src={gorroImg} alt="ingredientes" className="mb-3" style={{ width: '100px', height: '100px' }} />
+              <img src={process.env.PUBLIC_URL +"/img/gorro.png"} alt="ingredientes" className="mb-3" style={{ width: '100px', height: '100px' }} />
               <h6 className="fw-bold text-dark mb-1">Ingredientes frescos</h6>
               <p className="text-muted small mb-0">Seleccionamos lo mejor de cada temporada.</p>
             </div>
             <div className="col-md-3 mb-3 mb-md-0 px-2 border-end">
-              <img src={platoImg} alt="receta" className="mb-3" style={{ width: '100px', height: '100px' }} />
+              <img src={process.env.PUBLIC_URL +"/img/plato.png"} alt="receta" className="mb-3" style={{ width: '100px', height: '100px' }} />
               <h6 className="fw-bold text-dark mb-1">Alta cocina</h6>
               <p className="text-muted small mb-0">Recetas únicas con toque gourmet.</p>
             </div>
             <div className="col-md-3 mb-3 mb-md-0 px-2 border-end">
-              <img src={hojasImg} alt="ambiente" className="mb-3" style={{ width: '100px', height: '100px' }} />
+              <img src={process.env.PUBLIC_URL +"/img/hojas.png"} alt="ambiente" className="mb-3" style={{ width: '100px', height: '100px' }} />
               <h6 className="fw-bold text-dark mb-1">Ambiente acogedor</h6>
               <p className="text-muted small mb-0">El lugar perfecto para compartir.</p>
             </div>
             <div className="col-md-3 px-2">
-              <img src={copaImg} alt="vinos" className="mb-3" style={{ width: '100px', height: '100px' }} />
+              <img src={process.env.PUBLIC_URL +"/img/copa.png"} alt="vinos" className="mb-3" style={{ width: '100px', height: '100px' }} />
               <h6 className="fw-bold text-dark mb-1">Vinos selectos</h6>
               <p className="text-muted small mb-0">Maridajes que realzan cada sabor.</p>
             </div>
@@ -79,7 +68,7 @@ export default function Inicio() {
                         
               <div className="col">
                 <div className="card h-100 bg-white text-dark border-0 shadow-sm overflow-hidden">
-                  <img src={carneImg} alt="carne" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
+                  <img src={process.env.PUBLIC_URL +"/img/carne.png"} alt="carne" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
                   <div className="card-body d-flex flex-column justify-content-between p-3">
                     <div>
                       <h5 className="card-title fw-bold text-dark">Bife de res gourmet</h5>
@@ -92,7 +81,7 @@ export default function Inicio() {
 
               <div className="col">
                 <div className="card h-100 bg-white text-dark border-0 shadow-sm overflow-hidden">
-                  <img src={pastaImg} alt="pasta" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
+                  <img src={process.env.PUBLIC_URL +"/img/pasta.png"} alt="pasta" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
                   <div className="card-body d-flex flex-column justify-content-between p-3">
                     <div>
                       <h5 className="card-title fw-bold text-dark">Pasta alfredo con langostinos</h5>
@@ -105,7 +94,7 @@ export default function Inicio() {
 
               <div className="col">
                 <div className="card h-100 bg-white text-dark border-0 shadow-sm overflow-hidden">
-                  <img src={salmonImg} alt="salmon" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
+                  <img src={process.env.PUBLIC_URL +"/img/salmon.png"} alt="salmon" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
                   <div className="card-body d-flex flex-column justify-content-between p-3">
                     <div>
                       <h5 className="card-title fw-bold text-dark">Salmón a la parrilla</h5>
@@ -118,7 +107,7 @@ export default function Inicio() {
 
               <div className="col">
                 <div className="card h-100 bg-white text-dark border-0 shadow-sm overflow-hidden">
-                  <img src={postreImg} alt="postre" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
+                  <img src={process.env.PUBLIC_URL +"/img/postre.png"} alt="postre" className="w-100" style={{ height: '180px', objectFit: 'cover' }} />
                   <div className="card-body d-flex flex-column justify-content-between p-3">
                     <div>
                       <h5 className="card-title fw-bold text-dark">Coulant de chocolate</h5>
@@ -135,7 +124,7 @@ export default function Inicio() {
             <div className="row align-items-center py-4 mt-5">
               <div className="col-md-6 mb-4 mb-md-0">
                 <img 
-                  src={restauranteImg} 
+                  src={process.env.PUBLIC_URL +"/img/restaurante.png"}
                   alt="Ambiente del Restaurante Sabor y Arte" 
                   className="w-100 rounded shadow-sm object-fit-cover" 
                   style={{ height: '320px' }} 

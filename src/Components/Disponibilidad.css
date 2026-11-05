@@ -1,0 +1,287 @@
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .page-wrapper {
+    background-color: #f5f2eb;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    }
+
+    .card-container {
+    background: #ffffff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 680px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #b59269;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    }
+
+    .title {
+    color: #0f3d38;
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.4rem;
+    }
+
+    .description {
+    color: #666;
+    font-size: 0.85rem;
+    }
+
+    /* Stepper */
+    .stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0 2rem;
+    }
+
+    .step {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #b59269;
+    color: #b59269;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    background: #fff;
+    }
+
+    .step-active {
+    background: #0f3d38;
+    border-color: #0f3d38;
+    color: #fff;
+    }
+
+    .step-line {
+    width: 45px;
+    height: 1px;
+    background: #ddd;
+    }
+
+    .step-line.active {
+    background: #0f3d38;
+    }
+
+    /* Resumen */
+    .summary-section {
+    background-color: #f7f4ed;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 1.2rem;
+    }
+
+    .btn-modify {
+    position: absolute;
+    top: -1.2rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: #b59269;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 600;
+    }
+
+    .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    }
+
+    .summary-item .label {
+    display: block;
+    font-size: 0.65rem;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+    }
+
+    .summary-item .value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #111;
+    }
+
+    /* Alerta */
+    .alert-banner {
+    background-color: #eaf2ed;
+    border: 1px solid #c2dbcd;
+    border-radius: 4px;
+    padding: 0.9rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    }
+
+    .alert-icon {
+    width: 28px;
+    height: 28px;
+    background: #0f3d38;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    }
+
+    .alert-banner strong {
+    display: block;
+    color: #0f3d38;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    }
+
+    .alert-banner p {
+    color: #555;
+    font-size: 0.75rem;
+    }
+
+    /* Grid de Horarios */
+    .time-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    }
+
+    .section-title {
+    font-size: 0.95rem;
+    color: #0f3d38;
+    letter-spacing: 1px;
+    margin-bottom: 1.2rem;
+    }
+
+    .time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    }
+
+    .time-card {
+    border: 1px solid #0f3d38;
+    background: #fff;
+    padding: 0.8rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    }
+
+    .time-card.disabled {
+    background: #e6e2dc;
+    border-color: transparent;
+    cursor: not-allowed;
+    }
+
+    .time-card.selected {
+    background: #0f3d38;
+    color: #fff;
+    }
+
+    .time-text {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #111;
+    }
+
+    .time-card.selected .time-text,
+    .time-card.selected .status-text {
+    color: #fff;
+    }
+
+    .status-text {
+    display: block;
+    font-size: 0.65rem;
+    color: #777;
+    margin-top: 0.2rem;
+    }
+
+    .time-card.disabled .time-text,
+    .time-card.disabled .status-text {
+    color: #999;
+    }
+
+    /* Leyenda */
+    .legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 1rem;
+    }
+
+    .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    }
+
+    .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    }
+
+    .dot-available { background: #0f3d38; }
+    .dot-unavailable { background: #b5b0a6; }
+
+    /* Botones del Footer */
+    .card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    }
+
+    .btn-secondary {
+    border: 1px solid #0f3d38;
+    background: transparent;
+    color: #0f3d38;
+    padding: 0.6rem 1.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    }
+
+    .btn-primary {
+    border: none;
+    background: #c2c7c4;
+    color: #fff;
+    padding: 0.6rem 1.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    }

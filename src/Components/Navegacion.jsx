@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import chefLogo from '../img/chef.png';
+
 
 export default function Navegacion() {
   const location = useLocation();
@@ -10,13 +10,13 @@ export default function Navegacion() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-top py-2 px-4 border-bottom border-secondary navbar-Sabor&Arte" style={{ backgroundColor: '#121212' }}>
+    <nav className="navbar navbar-expand-lg navbar-dark sticky-top py-2 border-bottom border-secondary" style={{ backgroundColor: '#121212' }}>
       <div className="container">
 
         {/* LOGO */}
         <Link to="/" className="navbar-brand d-flex align-items-center text-decoration-none">
           <img 
-            src={chefLogo}
+            src={process.env.PUBLIC_URL + "/img/chef.png"}
             alt="Logo Chef" 
             width="45" 
             height="45" 
