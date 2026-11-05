@@ -13,7 +13,7 @@ const EQUIPO = [
   { nombre: 'Ana Díaz', cargo: 'Sommelier en Vinos', foto: IMG + 'somelier_vinos.png' },
   { nombre: 'Carlos Ruiz', cargo: 'Experto en Vinos', foto: IMG + 'experto_vinos.png' },
   { nombre: 'Miguel Angel', cargo: 'Jefe de Sala', foto: IMG + 'jefe_sala.png' },
-  { nombre: 'Sofía Morales', cargo: 'Sous Chef', foto: IMG + 'sous_chef.png' },
+  { nombre: 'Sofía Morales', cargo: 'Sous Chef', foto: IMG + 'Sous_Chef.png' },
 ];
 
 const estiloBotonContorno = {
